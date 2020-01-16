@@ -1,0 +1,16 @@
+img {
+  max-width: 50%;
+}
+
+#snake-info {
+display: none;
+}
+
+#shark-info {
+  display: none; 
+
+}
+
+#giraffe-info {
+  display: none;
+}

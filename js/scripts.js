@@ -1,42 +1,55 @@
 $(document).ready(function() {
   $("form#myForm").submit(function(event) {
     event.preventDefault();
-    var rollerCoaster = parseInt($("input#q1").val());
-    var score = 0;
+    var sideOne = parseInt($("input#firstSide").val());
+    var sideTwo = parseInt($("input#secondSide").val());
+    var sideThree = parseInt($("input#thirdSide").val());
 
-    if (rollerCoaster === 10) {
-      score = 10;
-      alert(score);
-    } else if (rollerCoaster < 10 && rollerCoaster >= 5) {
-      score = 5;
-      alert(score);
-    } else {
-      score = 0;
-      alert(score);
+
+    // if (sideOne === sideTwo && sideTwo === sideThree) {
+    //   alert("equilateral");
+    // } else if (sideOne === sideTwo || sideTwo === sideThree || sideOne === sideThree) {
+    //   alert("isosceles");
+    // } else if ((sideOne != sideTwo) && (sideTwo != sideThree) && (sideOne != sideThree)) {
+    //   alert("scalene");
+    // } else {
+    //   alert("NOT TRIANGLE");
+    // }
+
+    if (((sideOne + sideTwo) <= sideThree) || ((sideTwo + sideThree) <= sideOne) || ((sideThree + sideOne) <= sideTwo)) {
+      alert("NOT TRIANGLE");
+    } else if (sideOne === sideTwo && sideTwo === sideThree) {
+      alert("equilateral");
+    } else if (sideOne === sideTwo || sideTwo === sideThree || sideOne === sideThree) {
+      alert("isosceles");
+    } else if ((sideOne != sideTwo) && (sideTwo != sideThree) && (sideOne != sideThree)) {
+      alert("scalene");
     }
 
-    
-    //////////////////front end//////////////////
-    if (score >= 10) {
-      $("#result").show();
-      $("#celebName").empty().append("Keanu Reeves");
-      $("#totalScore").empty().append(" " + score);
-      // show #result
-      // show #celebName
-      // show #totalScore
-      // your match is Keanu Reeves
-    } else if (score ===5) {
-      $("#result").show();
-      $("#celebName").empty().append("Danny Devito");
-      $("#totalScore").empty().append(" " + score);
-      // your natch is danny devito
-    } else { 
-      $("#result").show();
-      $("#celebName").empty().append("Hulk Hogan");
-      $("#totalScore").empty().append(" " + score);
-      // your match is hulk hogan
+
+    // if ((sideOne + sideTwo) <= sideThree) {
+    //   if ((sideOne != sideTwo) && (sideTwo != sideThree) && (sideOne != sideThree)) {
+    //     alert("scalene");
+    //   } else if (sideOne === sideTwo || sideTwo === sideThree || sideOne === sideThree) {
+    //     alert("isosceles");
+    //   } else if (sideOne === sideTwo && sideTwo === sideThree) {
+    //     alert("equilateral");
+    //   } else {
+    //     alert("NOT TRIANGLE");
+    //   }
+    // }
   
-    }
+    
+    //if all sides are equal (side1 === side2 && side2 === side3), then:
+    // show output = equilateral
+    //if two sides are equal (side1 === side2 || side2 === side3 || side1 === side3), then:
+    // show output = isosceles
+
+    //if side1 + side2 <= side 3, then:
+        //check if no sides are equal ((side1 != side2) && (side2 != side3) && (side1 != side3)  ), then:
+        // show output = scalene:
+    // otherwise, show output = NOT a triangle.
+  
 
 
   });
